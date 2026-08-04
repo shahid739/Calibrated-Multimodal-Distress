@@ -1,0 +1,34 @@
+Calibrated-Multimodal-Distress/
+├── README.md                      # This file
+├── LICENSE                        # MIT License
+├── requirements.txt               # Python dependencies
+├── environment.yml                # Conda environment
+├── setup.py                       # Package setup
+├── .gitignore                     # Git ignore file
+├── CITATION.cff                   # Citation information
+├── configs/
+│   ├── default_config.yaml        # Default configuration
+│   ├── audio_only.yaml            # Audio-only ablation
+│   ├── text_only.yaml             # Text-only ablation
+│   ├── sliding_window.yaml        # Sliding window segmentation
+│   └── categorical_distress.yaml  # Categorical distress target
+├── src/
+│   ├── __init__.py
+│   ├── config.py                  # Configuration classes
+│   ├── dataset.py                 # Dataset handling
+│   ├── model.py                   # DERS-X model architecture
+│   ├── trainer.py                 # Training and evaluation
+│   ├── metrics.py                 # Evaluation metrics
+│   └── utils.py                   # Utility functions
+├── notebooks/
+│   ├── DERS-X_Part_A.ipynb        # Main training notebook
+│   └── DERS-X_Ablation.ipynb      # Ablation experiments
+├── scripts/
+│   ├── prepare_data.py            # Data preparation
+│   └── run_experiments.py         # Run all experiments
+├── results/                       # Experiment outputs
+├── logs/                          # Training logs
+└── docs/
+    ├── architecture.md            # Architecture documentation
+    ├── experimental_setup.md      # Experimental setup
+    └── reproducibility.md         # Reproducibility guide

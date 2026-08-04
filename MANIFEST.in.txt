@@ -1,0 +1,9 @@
+include README.md
+include LICENSE
+include requirements.txt
+include environment.yml
+include CITATION.cff
+recursive-include configs *.yaml
+recursive-include notebooks *.ipynb
+recursive-include scripts *.py
+recursive-include docs *.md

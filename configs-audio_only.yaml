@@ -1,0 +1,46 @@
+# Audio-Only Configuration (Ablation)
+
+# Dataset
+hf_dataset: "AbstractTTS/IEMOCAP"
+hf_split: "train"
+emotion_label_set: "iemocap_4"
+
+# Distress Target
+distress_target: "activation_regression"
+activation_bins: [2.5, 3.5, 4.5]
+
+# Audio Processing
+target_sr: 16000
+max_audio_seconds: 10.0
+use_sliding_window: false
+segment_seconds: 6.0
+segment_overlap: 0.5
+
+# Encoders
+wav2vec_name: "facebook/wav2vec2-base-960h"
+text_name: "distilbert-base-uncased"
+
+# Fusion - Audio Only
+proj_dim: 256
+num_heads: 4
+drb_use_stats: true
+fusion_mode: "audio_only"  # KEY: Only audio modality
+
+# Training
+batch_size: 6
+num_epochs: 6
+lr: 0.0002
+weight_decay: 0.01
+warmup_ratio: 0.06
+grad_clip: 1.0
+mixed_precision: true
+
+# Multi-task Loss Weights
+lambda_grid: [0.3, 0.5, 0.7]
+
+# Output
+out_dir: "./dersx_hf_iemocap_runs_audio_only"
+
+# Reproducibility
+seed: 42
+device: "cuda"
