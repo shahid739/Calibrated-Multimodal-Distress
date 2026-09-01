@@ -1,0 +1,66 @@
+# Auto-detect text files and perform LF normalization
+* text=auto
+
+# Source code
+*.py text diff=python
+*.js text
+*.html text
+*.css text
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Jupyter Notebooks
+*.ipynb text diff=ipynb
+
+# Configuration files
+*.yaml text
+*.yml text
+*.json text
+*.toml text
+*.cfg text
+*.conf text
+
+# Documentation
+*.md text diff=markdown
+*.rst text
+*.txt text
+*.tex text
+
+# Data files
+*.csv text
+*.tsv text
+*.xml text
+
+# Binary files (do not modify line endings)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.bmp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar.gz binary
+*.tgz binary
+*.gz binary
+*.bz2 binary
+*.7z binary
+*.rar binary
+*.mp3 binary
+*.wav binary
+*.flac binary
+*.pt binary
+*.pth binary
+*.pkl binary
+*.h5 binary
+*.npy binary
+*.npz binary
+*.so binary
+*.dll binary
+*.exe binary
+*.pyc binary
+
+# Linguist overrides (optional)
+# Exclude generated files from GitHub's language statistics
+*.min.js linguist-generated=true
+*.min.css linguist-generated=true
