@@ -1,0 +1,12 @@
+exp,macro_f1,pearson_r,mae,qwk
+last_w2v2_mean_pooling,0.601,0.52,0.63,0.63
+plus_layerwise_drms,0.631,0.56,0.61,0.66
+plus_attentive_pooling,0.649,0.58,0.60,0.68
+plus_maxout,0.662,0.60,0.59,0.69
+plus_auxiliary_prosody,0.674,0.62,0.58,0.71
+plus_bidirectional_cross_attention,0.697,0.65,0.56,0.73
+plus_gating,0.708,0.66,0.55,0.75
+plus_entropy_weighting,0.716,0.67,0.54,0.76
+plus_arcface,0.725,0.69,0.53,0.77
+plus_multitask_activation,0.731,0.71,0.52,0.78
+plus_post_hoc_dialog_aggregation,0.738,0.76,0.52,0.784

@@ -1,0 +1,42 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Shahid"
+    given-names: "Muhammad"
+    email: "shahidrao739@gmail.com"
+    affiliation: "The Islamia University of Bahawalpur"
+  - family-names: "Arshad"
+    given-names: "Humaira"
+    email: "humera.arshad@iub.edu.pk"
+    affiliation: "The Islamia University of Bahawalpur"
+  - family-names: "Iqbal"
+    given-names: "Sajid"
+    email: "siqbal@kfu.edu.sa"
+    affiliation: "King Faisal University"
+  - family-names: "Anwar"
+    given-names: "Waheed"
+    email: "waheed@iub.edu.pk"
+    affiliation: "The Islamia University of Bahawalpur"
+  - family-names: "Asghar"
+    given-names: "Muhammad Nabeel"
+    email: "mnasghar@kfu.edu.sa"
+    affiliation: "King Faisal University"
+  - family-names: "Iqbal"
+    given-names: "Abid"
+    email: "abiqbal@kfu.edu.sa"
+    affiliation: "King Faisal University"
+title: "DERS-X: A Reproducible Benchmark Protocol for Calibrated Multimodal Proxy-Distress Affect Modeling on Speech Corpora"
+version: "1.0.0"
+date-released: "2026-08-31"
+url: "https://github.com/shahid739/DERS-X-Benchmark"
+repository-code: "https://github.com/shahid739/DERS-X-Benchmark"
+abstract: "A reproducible benchmark protocol for calibrated multimodal proxy-distress affect modeling on public speech emotion corpora using Wav2Vec 2.0, DistilBERT, cross-modal attention, and temperature scaling."
+keywords:
+  - speech emotion recognition
+  - proxy-distress affect modeling
+  - cross-modal attention
+  - probability calibration
+  - multimodal fusion
+  - wav2vec 2.0
+  - distilbert
+license: MIT
