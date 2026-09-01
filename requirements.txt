@@ -1,0 +1,28 @@
+# Reference reproduction dependencies for DERS-X-B.ipynb
+# For the most controlled setup, prefer environment.yml.
+
+# Core deep-learning stack
+torch>=2.0.0
+torchaudio>=2.0.0
+transformers>=4.42,<5
+datasets>=2.12
+
+# Data / scientific computing
+numpy>=1.24.0
+pandas>=2.0.0
+scipy>=1.10.0
+scikit-learn>=1.3.0
+pyarrow>=14
+
+# Audio
+librosa>=0.10.0
+soundfile>=0.12.0
+
+# Runtime / utilities
+matplotlib>=3.7.0
+tqdm>=4.66.0
+psutil>=5.9
+pyyaml>=6.0
+
+# Optional interpretability support
+captum>=0.6.0

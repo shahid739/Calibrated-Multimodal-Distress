@@ -1,0 +1,30 @@
+DERS-X INSTALLATION AND QUICK START
+
+1. Clone the repository
+
+   git clone https://github.com/shahid739/Calibrated-Multimodal-Distress.git
+   cd Calibrated-Multimodal-Distress
+
+2. Create the recommended Conda environment
+
+   conda env create -f environment.yml
+   conda activate dersx_env
+
+   Pip alternative:
+
+   python -m pip install -r requirements.txt
+
+3. Inspect the archived result artifacts
+
+   python scripts-show_results.py --method csv --results_dir .
+   python scripts-verify_results.py --results_dir .
+   python scripts-repository_audit.py --repo .
+
+4. Full neural-model rerun
+
+   Obtain the third-party datasets from their official distributors, configure
+   local paths in DERS-X-B.ipynb, provide the exact retained IEMOCAP subset
+   manifest when required for the paper-exact analysis, and execute the
+   notebook sequentially.
+
+See README.md and docs-reproducibility.md for details.

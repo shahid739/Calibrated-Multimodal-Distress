@@ -1,0 +1,37 @@
+DERS-X METHODOLOGY SUMMARY
+
+1. Study Scope
+DERS-X is a benchmark protocol for multimodal speech/text affect modeling. The distress-like target is a proxy construct derived from benchmark affect annotations and is not a clinical diagnosis or emergency-triage label.
+
+2. Primary Dataset and Validation Unit
+The archived primary IEMOCAP result table contains five held-out session folds (Ses01-Ses05). The paper-aligned evaluation is therefore described as five-fold leave-one-session-out evaluation. Each complete session is held out as test data for one fold. Development partitions are kept dialog-disjoint.
+
+3. Leakage-Controlled Target Construction
+Continuous target normalization/statistics and ordinal thresholds are fitted from the training portion of each fold only. The fitted training statistics are then applied to validation, calibration, and held-out test data.
+
+4. Audio Preprocessing
+Audio is loaded from the official corpus, converted to mono when required, and resampled to 16 kHz. The paper-aligned notebook retains variable-length utterances and performs dynamic minibatch padding through the audio feature extractor. A fixed 10-second or 12-second truncation should not be attributed to the paper-aligned path unless present in the final canonical implementation.
+
+5. Text Preprocessing
+Transcripts are lowercased and normalized. Common filled pauses are normalized/removed according to the implementation, selected non-verbal tags can be preserved, and DistilBERT tokenization is limited to 128 wordpieces.
+
+6. Acoustic Representation
+The acoustic branch uses a Wav2Vec 2.0 Base encoder with layer-wise representation processing and learned pooling/projection components defined in the canonical notebook.
+
+7. Text Representation
+The text branch uses DistilBERT Base Uncased to encode normalized transcripts.
+
+8. Multimodal Fusion
+Audio and text representations are projected to a common latent space and combined using bidirectional cross-modal attention with four attention heads and a latent dimension of 256. Residual/normalization and modality-relevance mechanisms are implemented in the canonical notebook.
+
+9. Multi-Task Learning
+The model jointly optimizes an auxiliary emotion-recognition objective and a continuous proxy-distress regression objective. Fold-specific ordinal proxy classes are derived from training-fitted target statistics.
+
+10. Calibration
+Post-hoc calibration parameters are fitted on the dedicated calibration partition only. Test data are not used to fit calibration parameters.
+
+11. Evaluation
+Reported summaries distinguish fold-averaged metrics from pooled held-out metrics. The canonical numerical registry is paper_results.yaml, and the five archived primary fold rows are stored in results-fold_results.csv.
+
+12. Reproducibility
+Artifact-level consistency can be checked with scripts-verify_results.py. A full end-to-end rerun requires access to the original third-party datasets, the final canonical notebook, and the exact retained IEMOCAP subset manifest if a fixed 5,479-utterance subset was used in the reported analysis.
