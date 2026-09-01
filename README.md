@@ -23,7 +23,6 @@ The target is a **benchmark-specific distress-like affect construct** derived fr
 | `DERS-X-B.ipynb` | Canonical end-to-end reference implementation for data parsing, model training, calibration, evaluation, robustness tests, and ablations. The final repository version should implement the same five-session holdout protocol as the archived primary results. |
 | `paper_results.yaml` | Machine-readable registry of the numerical values reported by the manuscript/repository. |
 | `results-fold_results.csv` | Archived fold-level summary for the five IEMOCAP session folds. |
-| `results-utterance_predictions.csv` | Held-out prediction export. For pooled-metric reconstruction this file must contain the complete held-out prediction set, not only a preview/sample. |
 | `results-ablation_summary.csv` | Archived ablation summary. |
 | `scripts-show_results.py` | Displays archived result tables. |
 | `scripts-verify_results.py` | Checks internal consistency between archived fold results and `paper_results.yaml`. |
