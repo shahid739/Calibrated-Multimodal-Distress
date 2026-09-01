@@ -1,6 +1,0 @@
-# Clone the repository
-git clone https://github.com/shahid739/Calibrated-Multimodal-Distress.git
-cd Calibrated-Multimodal-Distress
-
-# Install dependencies
-pip install -r requirements.txt
