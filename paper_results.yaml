@@ -1,0 +1,291 @@
+# Paper Results for DERS-X
+# This file contains the results reported in the paper for comparison with generated results.
+# Used by scripts-verify_results.py for reproducibility verification.
+
+# Primary Results (from Table 4)
+fold_averaged_macro_f1: 0.738
+fold_averaged_macro_f1_std: 0.014
+fold_averaged_uar: 0.708
+fold_averaged_uar_std: 0.013
+fold_averaged_qwk: 0.784
+fold_averaged_qwk_std: 0.016
+
+pooled_macro_f1: 0.814
+pooled_uar: 0.735
+pooled_qwk: 0.808
+
+# Regression Results (from Table 5)
+regression_mae: 0.58
+regression_mae_std: 0.04
+pearson_r: 0.71
+pearson_r_std: 0.02
+spearman_rho: 0.69
+
+# Dialog-Level Results (from Table 5)
+dialog_mae: 0.57
+dialog_rmse: 0.68
+dialog_pearson_r: 0.76
+
+# Per-Class Proxy Results (from Table 7 Panel A)
+low_f1: 0.858
+low_f1_std: 0.014
+moderate_f1: 0.527
+moderate_f1_std: 0.026
+high_f1: 0.829
+high_f1_std: 0.032
+
+# Per-Fold Results (from Table 7 Panel A & B)
+fold_results:
+  Ses01:
+    low_f1: 0.85
+    moderate_f1: 0.51
+    high_f1: 0.806
+    macro_f1: 0.722
+    uar: 0.694
+    qwk: 0.766
+    high_recall: 0.786
+    mae: 0.61
+    pearson_r: 0.69
+  Ses02:
+    low_f1: 0.865
+    moderate_f1: 0.54
+    high_f1: 0.80
+    macro_f1: 0.735
+    uar: 0.709
+    qwk: 0.783
+    high_recall: 0.801
+    mae: 0.56
+    pearson_r: 0.72
+  Ses03:
+    low_f1: 0.84
+    moderate_f1: 0.50
+    high_f1: 0.85
+    macro_f1: 0.730
+    uar: 0.696
+    qwk: 0.774
+    high_recall: 0.775
+    mae: 0.63
+    pearson_r: 0.68
+  Ses04:
+    low_f1: 0.875
+    moderate_f1: 0.562
+    high_f1: 0.807
+    macro_f1: 0.748
+    uar: 0.723
+    qwk: 0.802
+    high_recall: 0.814
+    mae: 0.54
+    pearson_r: 0.74
+  Ses05:
+    low_f1: 0.86
+    moderate_f1: 0.525
+    high_f1: 0.88
+    macro_f1: 0.755
+    uar: 0.718
+    qwk: 0.795
+    high_recall: 0.793
+    mae: 0.56
+    pearson_r: 0.71
+
+# Calibration Results (from Table 8)
+ece_before_calibration: 0.084
+ece_after_temperature_scaling: 0.031
+ece_after_variance_aware: 0.041
+
+# Auxiliary Emotion Results (from Table 9)
+auxiliary_emotion_fold_averaged_macro_f1: 0.70
+auxiliary_emotion_fold_averaged_macro_f1_std: 0.03
+auxiliary_emotion_pooled_macro_f1: 0.61
+
+# Emotion Class F1 Scores (from Table 9)
+emotion_class_f1:
+  anger: 0.66
+  happiness: 0.72
+  neutral: 0.54
+  sadness: 0.65
+  excitement: 0.69
+  fear: 0.53
+  frustration: 0.63
+  other: 0.49
+  surprise: 0.59
+
+# Emotion Class Support (from Table 2)
+emotion_class_support:
+  anger: 1105
+  fear: 40
+  frustration: 1849
+  sadness: 1084
+  surprise: 107
+  excitement: 1041
+  happiness: 595
+  neutral: 1708
+  other: 2510
+
+# Ablation Results (from Table 10)
+ablation_results:
+  last_w2v2_mean_pooling:
+    macro_f1: 0.601
+    pearson_r: 0.52
+    mae: 0.63
+    qwk: 0.63
+  plus_layerwise_drms:
+    macro_f1: 0.631
+    pearson_r: 0.56
+    mae: 0.61
+    qwk: 0.66
+  plus_attentive_pooling:
+    macro_f1: 0.649
+    pearson_r: 0.58
+    mae: 0.60
+    qwk: 0.68
+  plus_maxout:
+    macro_f1: 0.662
+    pearson_r: 0.60
+    mae: 0.59
+    qwk: 0.69
+  plus_auxiliary_prosody:
+    macro_f1: 0.674
+    pearson_r: 0.62
+    mae: 0.58
+    qwk: 0.71
+  plus_bidirectional_cross_attention:
+    macro_f1: 0.697
+    pearson_r: 0.65
+    mae: 0.56
+    qwk: 0.73
+  plus_gating:
+    macro_f1: 0.708
+    pearson_r: 0.66
+    mae: 0.55
+    qwk: 0.75
+  plus_entropy_weighting:
+    macro_f1: 0.716
+    pearson_r: 0.67
+    mae: 0.54
+    qwk: 0.76
+  plus_arcface:
+    macro_f1: 0.725
+    pearson_r: 0.69
+    mae: 0.53
+    qwk: 0.77
+  plus_multitask_activation:
+    macro_f1: 0.731
+    pearson_r: 0.71
+    mae: 0.52
+    qwk: 0.78
+  plus_post_hoc_dialog_aggregation:
+    macro_f1: 0.738
+    pearson_r: 0.76
+    mae: 0.52
+    qwk: 0.784
+
+# Cross-Corpus Results (from Tables 15-16)
+cross_corpus:
+  IEMOCAP_to_MSP:
+    macro_f1: 0.68
+    pearson_r: 0.58
+    mae: 0.67
+    dialog_qwk: 0.69
+    relative_change: 15.00
+  MSP_to_IEMOCAP:
+    macro_f1: 0.64
+    pearson_r: 0.54
+    mae: 0.72
+    relative_change: 20.00
+
+# Degradation Results (from Table 17)
+degradation:
+  clean:
+    macro_f1: 0.738
+    high_recall: 0.794
+    uar: 0.708
+    ece: 0.034
+    mae: 0.58
+    pearson_r: 0.71
+  snr_20dB:
+    macro_f1: 0.729
+    high_recall: 0.776
+    uar: 0.697
+    ece: 0.038
+    mae: 0.59
+    pearson_r: 0.70
+  snr_15dB:
+    macro_f1: 0.704
+    high_recall: 0.738
+    uar: 0.671
+    ece: 0.045
+    mae: 0.62
+    pearson_r: 0.68
+  snr_10dB:
+    macro_f1: 0.667
+    high_recall: 0.696
+    uar: 0.641
+    ece: 0.055
+    mae: 0.65
+    pearson_r: 0.65
+  snr_5dB:
+    macro_f1: 0.588
+    high_recall: 0.596
+    uar: 0.557
+    ece: 0.071
+    mae: 0.70
+    pearson_r: 0.60
+  snr_0dB:
+    macro_f1: 0.555
+    high_recall: 0.550
+    uar: 0.520
+    ece: 0.085
+    mae: 0.72
+    pearson_r: 0.56
+
+# Modality Comparison (from Table 7)
+modality_comparison:
+  acoustic_only:
+    utterance_macro_f1: 0.72
+    dialog_qwk: 0.78
+  linguistic_only:
+    utterance_macro_f1: 0.75
+    dialog_qwk: 0.71
+  multimodal_dersx:
+    utterance_macro_f1: 0.80
+    dialog_qwk: 0.81
+
+# Selective Prediction (from Table 18)
+selective_prediction:
+  accept_all:
+    coverage: 1.00
+    macro_f1: 0.738
+    high_recall: 0.794
+    review_workload: 0.00
+  confidence_60:
+    coverage: 0.87
+    macro_f1: 0.771
+    high_recall: 0.833
+    review_workload: 0.13
+  confidence_70:
+    coverage: 0.76
+    macro_f1: 0.799
+    high_recall: 0.861
+    review_workload: 0.24
+  confidence_80:
+    coverage: 0.62
+    macro_f1: 0.831
+    high_recall: 0.895
+    review_workload: 0.38
+  confidence_90:
+    coverage: 0.47
+    macro_f1: 0.862
+    high_recall: 0.921
+    review_workload: 0.53
+
+# Computational Cost (from Table 20)
+computational_cost:
+  trainable_parameters: 162.4
+  total_parameters: 164.1
+  peak_gpu_memory_gb: 11.4
+  utterance_preprocessing_latency_s: 0.18
+  wav2vec_latency_s: 0.32
+  distilbert_latency_s: 0.08
+  fusion_head_latency_s: 0.02
+  total_latency_s: 0.60
+  real_time_factor: 0.05
