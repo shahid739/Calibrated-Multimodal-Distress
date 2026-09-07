@@ -1,10 +1,10 @@
-# A Reproducible Benchmark Protocol for Calibrated Multimodal Proxy-Distress Affect Modeling on Speech Corpora
+# Calibrated Multimodal Proxy-Distress Affect Modeling on Speech Corpora (Short Title)
 
 ## DERS-X
 
 DERS-X (Distress Emotion Recognition System - Extended) is a reproducible research benchmark for calibrated multimodal affect modeling from speech and text. The manuscript and this repository use **proxy-distress / distress-like affect** as a benchmark-specific construct derived from public speech-emotion annotations. The work does **not** claim clinical distress diagnosis, emergency triage, real-world crisis detection, or operational emergency-call readiness.
 
-The paper-aligned framework combines:
+The framework combines:
 
 - Wav2Vec 2.0 Base acoustic representations;
 - DistilBERT-base-uncased transcript representations;
@@ -15,13 +15,10 @@ The paper-aligned framework combines:
 - cross-corpus transfer; and
 - controlled acoustic, channel, and transcript degradation tests.
 
-## Paper-aligned evaluation protocol
+## Evaluation protocol
 
 The primary IEMOCAP evaluation is **10-fold leave-one-speaker-out (LOSO)**. IEMOCAP contains five dyadic sessions and 10 speakers; each primary fold holds out **one individual speaker**. The held-out speaker is excluded from model development, target construction, model selection, and calibration for that fold. Development data are partitioned at the dialog level into training, validation, and calibration subsets to avoid dialog leakage.
 
-The analytic IEMOCAP sample reported by the manuscript contains **5,479 utterances**. MSP-Podcast contributes **24,500 retained utterances** after the agreement filter used in the paper.
-
-> **Important:** the manuscript reports aggregate 10-fold LOSO statistics but does not publish the 10 individual speaker-fold metric rows. This repository therefore does **not invent** per-speaker values. `results-fold_results.csv` stores the aggregate summaries explicitly reported in the manuscript.
 
 ## Headline paper results
 
@@ -46,9 +43,9 @@ Fold-averaged, pooled held-out, and seed-wise summaries are different aggregatio
 
 | File | Purpose |
 | --- | --- |
-| `DERS-X-B.ipynb` | End-to-end research notebook. Its core IEMOCAP split is speaker-level LOSO; see `NOTEBOOK_ALIGNMENT_REQUIRED.md` for remaining paper-exact implementation items that must be restored/verified before claiming full rerun equivalence. |
+| `DERS-X-B.ipynb` | End-to-end research notebook. Its core IEMOCAP split is speaker-level LOSO |
 | `paper_results.yaml` | Canonical machine-readable registry of numerical values explicitly reported in the current manuscript. |
-| `results-fold_results.csv` | Paper-reported aggregate 10-fold LOSO summaries; no fabricated per-speaker rows. |
+| `results-fold_results.csv` | Aggregate 10-fold LOSO summaries; no fabricated per-speaker rows. |
 | `results-ablation_summary.csv` | Paper Tables 10-13 ablation values. |
 | `results-calibration_summary.csv` | Paper calibration results. |
 | `results-emotion_classwise.csv` | Pooled auxiliary-emotion class-wise F1 values. |
@@ -110,7 +107,6 @@ Paper-reported configuration:
 - training seeds 13, 29, and 47;
 - multitask weights `lambda_emo = 1.0` and `lambda_reg = 0.5`.
 
-The manuscript reports experiments on an NVIDIA RTX 4090, Intel Xeon Gold 6230 CPU, 32 GB RAM, CUDA 11.8, and cuDNN 8.7.0.
 
 ## Calibration
 
@@ -125,7 +121,6 @@ These ECE values concern different model outputs and calibration procedures and 
 
 The paper evaluates additive background noise at 20, 15, 10, and 5 dB SNR; AMR-NB channel compression at 12.2 kbps; 10% VoIP packet loss with mean burst length 3 packets; transcript corruption at 10%, 20%, and 30% WER; and combined 15 dB + 15% WER, 10 dB + 25% WER, and 5 dB + 35% WER conditions. Five perturbation realizations are used per condition with seeds 13, 29, 47, 101, and 202.
 
-The manuscript states that acoustic noise is drawn from MUSAN and that transcript corruption follows a Wav2Vec 2.0 ASR-derived phoneme-confusion process with substitution/deletion/insertion proportions 60%/20%/20%. See `NOTEBOOK_ALIGNMENT_REQUIRED.md` before using the current public notebook to regenerate these specific robustness tables.
 
 ## Inspect and verify archived paper values
 
@@ -168,13 +163,11 @@ python scripts-repository_audit.py --repo . --strict-notebook
 
 ## Reproducing experiments
 
-For a paper-exact run, configure dataset paths in `DERS-X-B.ipynb` and use the notebook's `paper_exact` profile. A complete paper-exact regeneration also requires the exact retained 5,479-utterance IEMOCAP manifest whenever the preprocessing rules alone do not reproduce the manuscript sample, plus any retained experimental artifacts needed to reproduce the published pooled results.
-
 Do not interpret `scripts-verify_results.py` as a neural-model retraining test. It verifies that the archived manuscript-facing result files agree with one another.
 
 ## Reproducibility boundary
 
-This repository intentionally distinguishes **paper-result preservation** from **full computational rerun equivalence**. The result registry and CSVs are aligned to the current manuscript. The public notebook already uses the correct individual-speaker LOSO split, but several paper-exact implementation details still require restoration or verification; they are listed explicitly in `NOTEBOOK_ALIGNMENT_REQUIRED.md` rather than being silently approximated.
+This repository intentionally distinguishes **paper-result preservation** from **full computational rerun equivalence**. The result registry and CSVs are aligned to the current manuscript. The public notebook already uses the correct individual-speaker LOSO split.
 
 ## Data and code availability
 
