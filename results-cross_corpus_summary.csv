@@ -1,0 +1,5 @@
+training_corpus,testing_corpus,macro_f1,pearson_r,mae,dialog_qwk,relative_macro_f1_change_percent,manuscript_table
+IEMOCAP,IEMOCAP (in-domain),0.8,0.71,0.52,0.81,,Tables 15-16
+IEMOCAP,MSP-Podcast,0.68,0.58,0.67,0.69,15.0,Tables 15-16
+MSP-Podcast,MSP-Podcast (in-domain),0.76,0.68,0.58,,,Table 16
+MSP-Podcast,IEMOCAP,0.64,0.54,0.72,,20.0,Table 16

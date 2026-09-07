@@ -1,0 +1,48 @@
+DERS-X PAPER-ALIGNED INSTALLATION AND CHECKS
+===============================================
+
+1. Clone repository
+-------------------
+git clone https://github.com/shahid739/Calibrated-Multimodal-Distress.git
+cd Calibrated-Multimodal-Distress
+
+2. Create recommended Conda environment
+---------------------------------------
+conda env create -f environment.yml
+conda activate dersx_env
+
+Alternative Python dependencies:
+python -m pip install -r requirements.txt
+
+For the paper's AMR-NB degradation experiment, an FFmpeg build with an AMR-NB encoder is required. The Conda environment includes ffmpeg, but codec availability should still be checked by the notebook.
+
+3. Inspect paper-aligned values
+-------------------------------
+python scripts-show_results.py --results_dir .
+
+4. Verify result-file consistency
+---------------------------------
+python scripts-verify_results.py --results_dir .
+
+5. Audit repository protocol alignment
+--------------------------------------
+python scripts-repository_audit.py --repo .
+
+For strict paper-exact notebook checks:
+python scripts-repository_audit.py --repo . --strict-notebook
+
+6. Obtain third-party datasets
+------------------------------
+IEMOCAP: https://sail.usc.edu/iemocap/
+MSP-Podcast: https://lab-msp.com/MSP/MSP-Conversation.html
+MUSAN: https://www.openslr.org/17/
+
+Raw datasets are not redistributed by this repository.
+
+7. Configure DERS-X-B.ipynb
+---------------------------
+Set dataset paths and select profile="paper_exact" for manuscript reproduction.
+
+The paper-exact IEMOCAP run expects 5,479 retained utterances. If the documented filters do not deterministically recreate that sample, provide the genuine retained utterance-ID manifest via the notebook configuration.
+
+IMPORTANT: read NOTEBOOK_ALIGNMENT_REQUIRED.md. The live notebook currently requires several code-level corrections/restorations before every reported analysis can be claimed as fully paper-exact.

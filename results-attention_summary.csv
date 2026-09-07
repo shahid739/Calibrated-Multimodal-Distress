@@ -1,0 +1,3 @@
+condition,audio_share_mean_percent,audio_share_sd_percent,text_share_approx_percent,aggregation,manuscript_figure
+Clean,54.7,3.2,45.0,utterance-level average,Figure 4
+10 dB SNR,34.9,4.1,65.0,utterance-level average,Figure 4

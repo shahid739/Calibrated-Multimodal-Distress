@@ -1,0 +1,10 @@
+emotion,abbreviation,f1_score,aggregation,manuscript_table
+Anger,ang,0.66,pooled held-out,Table 9
+Happiness,hap,0.72,pooled held-out,Table 9
+Neutral,neu,0.54,pooled held-out,Table 9
+Sadness,sad,0.65,pooled held-out,Table 9
+Excitement,exc,0.69,pooled held-out,Table 9
+Fear,fea,0.53,pooled held-out,Table 9
+Frustration,fru,0.63,pooled held-out,Table 9
+Other,oth,0.49,pooled held-out,Table 9
+Surprise,sur,0.59,pooled held-out,Table 9

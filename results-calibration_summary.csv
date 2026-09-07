@@ -1,0 +1,3 @@
+output,calibration_method,ece_before,ece_after,manuscript_table,note
+auxiliary_emotion,temperature_scaling,0.084,0.031,Table 8,Temperature fitted on calibration partition
+binned_proxy_distress,variance_aware_recalibration,0.072,0.041,Table 8,Distinct output/procedure; not directly comparable with auxiliary-emotion ECE

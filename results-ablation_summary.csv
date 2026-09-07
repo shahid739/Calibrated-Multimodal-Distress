@@ -1,0 +1,17 @@
+section,table,variant,macro_f1,aux_emotion_macro_f1,pearson_r,mae,dialog_qwk,training_time_min_per_epoch_approx,notes
+modality_and_fusion,Table 10,Acoustic Only (wav2vec 2.0),0.72,0.65,,,,,
+modality_and_fusion,Table 10,Linguistic Only (DistilBERT),0.75,0.68,,,,,
+modality_and_fusion,Table 10,Early Fusion (Concatenation),0.77,0.69,,,,,
+modality_and_fusion,Table 10,Late Fusion (Averaged),0.78,0.69,,,,,
+modality_and_fusion,Table 10,DERS-X (Cross-Modal Attention),0.8,0.7,,,,,Proposed fusion variant
+regression_head,Table 11,Linear projection only,0.76,,0.67,0.56,,,
+regression_head,Table 11,One-layer MLP (ReLU),0.78,,0.69,0.54,,,
+regression_head,Table 11,"Two-layer MLP (GELU + dropout), proposed",0.8,,0.71,0.52,,,Proposed regression head
+regression_head,Table 11,Three-layer MLP (GELU + dropout),0.79,,0.7,0.53,,,
+encoder_choice,Table 12,Acoustic: log-Mel spectrograms + CNN,0.68,,,,,15,
+encoder_choice,Table 12,"Acoustic: wav2vec 2.0 fine-tuned, proposed",0.72,,,,,25,
+encoder_choice,Table 12,Text: TF-IDF vectors,0.7,,,,,5,
+encoder_choice,Table 12,Text: GloVe embeddings,0.72,,,,,10,
+encoder_choice,Table 12,"Text: DistilBERT fine-tuned, proposed",0.75,,,,,20,
+dialog_context,Table 13,No Context (Isolated Utterances),0.76,,,,0.72,,
+dialog_context,Table 13,Full Model (With Context Transformer),0.8,,,,0.81,,Proposed context model

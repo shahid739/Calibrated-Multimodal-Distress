@@ -1,0 +1,4 @@
+record_type,evaluation_protocol,held_out_unit,n_folds,macro_f1,macro_f1_sd,uar,qwk,qwk_sd,regression_mae,regression_mae_sd,aux_emotion_macro_f1,aux_emotion_macro_f1_sd,accuracy,ece_after_scaling,ece_after_scaling_sd,source,note
+fold_averaged,LOSO,individual speaker,10,0.755,0.03,,0.784,0.027,0.58,0.04,0.7,0.028,,,,Manuscript Tables 3-4,Individual per-speaker fold rows are not reported in the manuscript; do not invent them.
+pooled_held_out,LOSO,concatenated held-out predictions,10,0.814,,0.748,0.808,,,,~0.61,,0.843,,,Manuscript Tables 4 and 6,Pooled metrics are not interchangeable with fold-averaged metrics.
+seed_mean,three training seeds within LOSO workflow,seed summary,10,0.794,0.007,,0.809,0.003,0.522,0.004,,,,0.031,0.001,Manuscript Table 3,Seed summary reported separately from fold-averaged and pooled evaluation.

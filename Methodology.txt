@@ -1,0 +1,75 @@
+DERS-X PAPER-ALIGNED METHODOLOGY SUMMARY
+
+Scope
+-----
+DERS-X is a calibrated multimodal benchmark for proxy-distress / distress-like affect modeling from public speech-emotion corpora. The target is a benchmark-specific affect construct and is not a clinical diagnosis, emergency-triage label, or real-world emergency-call distress detector.
+
+Corpora
+-------
+Primary: IEMOCAP. The manuscript analytic sample contains 5,479 utterances from 10 speakers in five dyadic sessions.
+Cross-corpus: MSP-Podcast, with 24,500 retained utterances after the paper's agreement filter.
+Noise source: MUSAN for additive acoustic degradation experiments.
+
+Primary validation
+------------------
+The paper uses 10-fold leave-one-speaker-out (LOSO) evaluation on IEMOCAP. Each fold holds out one individual speaker. The held-out speaker is excluded from training, validation, calibration, target standardization, quartile-threshold construction, early stopping, and model selection.
+
+Within the remaining development data, dialogs are split approximately 80% training, 10% validation, and 10% calibration, with dialog disjointness maintained across partitions.
+
+Target construction
+-------------------
+For each fold, the continuous IEMOCAP activation target is standardized using training-partition statistics only. Four proxy-distress levels are obtained from the 25th, 50th, and 75th percentiles of the standardized training target. The same fold-specific mapping is then applied to validation, calibration, and held-out test data.
+
+Architecture
+------------
+Audio: Wav2Vec 2.0 Base, with learned layer mixing and projection to a 256-dimensional token space.
+Text: DistilBERT-base-uncased, projected to the same 256-dimensional latent space.
+Fusion: four-head bidirectional cross-modal attention, followed by pooled multimodal representation learning.
+Outputs: continuous proxy-distress regression plus auxiliary nine-class emotion classification.
+Context analysis: the manuscript describes a two-layer Transformer over utterance representations for the full-context variant.
+
+Optimization
+------------
+Effective batch size: 8
+Optimizer: AdamW
+Encoder learning rate: 1e-5
+New-layer learning rate: 1e-4
+Warmup: 10% of optimization steps
+Weight decay: 0.01
+Gradient clipping: norm 1.0
+Maximum epochs: 20
+Early-stopping patience: 3
+Dropout: 0.2
+Training seeds: 13, 29, 47
+Loss weights: lambda_emo=1.0; lambda_reg=0.5
+
+Calibration
+-----------
+Auxiliary emotion logits are calibrated using temperature scaling fitted exclusively on the calibration partition. The paper reports ECE 0.084 before and 0.031 after temperature scaling.
+
+For binned proxy-distress derived from the continuous output, the manuscript describes variance-aware uncertainty and post-hoc variance recalibration, reporting ECE 0.072 before and 0.041 after calibration. These two calibration analyses refer to different outputs.
+
+Evaluation hierarchy
+--------------------
+Primary: fold-averaged speaker-level LOSO summaries.
+Secondary: pooled held-out metrics obtained by concatenating held-out predictions and scoring once.
+Tertiary: seed-wise training-stability summaries.
+These summaries are reported separately because they are not statistically interchangeable.
+
+Cross-corpus testing
+--------------------
+The paper evaluates IEMOCAP -> MSP-Podcast and MSP-Podcast -> IEMOCAP transfer under a shared four-level proxy-distress axis while explicitly acknowledging residual target-definition and domain shift.
+
+Controlled degradation
+----------------------
+Acoustic noise: MUSAN noise at 20, 15, 10, and 5 dB SNR.
+Channel: AMR-NB at 12.2 kbps and 10% VoIP packet loss with mean burst length 3 packets.
+Transcript corruption: Wav2Vec 2.0 ASR-derived phoneme-confusion process targeting 10%, 20%, and 30% WER, with substitution/deletion/insertion proportions 60%/20%/20%.
+Combined conditions: 15 dB + 15% WER, 10 dB + 25% WER, and 5 dB + 35% WER.
+Five perturbation realizations are used per condition with seeds 13, 29, 47, 101, and 202.
+
+Repository result policy
+------------------------
+The current manuscript reports the 10-fold aggregate mean/SD but does not publish the ten individual speaker-fold rows. The repository therefore preserves only the values explicitly reported by the paper; it does not synthesize or reverse-engineer missing per-fold measurements.
+
+See NOTEBOOK_ALIGNMENT_REQUIRED.md for implementation details that must still be restored/verified in DERS-X-B.ipynb before claiming full paper-exact rerun equivalence.
