@@ -1,6 +1,7 @@
 # Calibrated Multimodal Proxy-Distress Affect Modeling on Speech Corpora (Short Title)
 
 ## DERS-X
+[![DOI](https://zenodo.org/badge/1322640646.svg)](https://doi.org/10.5281/zenodo.23436802)
 
 DERS-X (Distress Emotion Recognition System - Extended) is a reproducible research benchmark for calibrated multimodal affect modeling from speech and text. The manuscript and this repository use **proxy-distress / distress-like affect** as a benchmark-specific construct derived from public speech-emotion annotations. The work does **not** claim clinical distress diagnosis, emergency triage, real-world crisis detection, or operational emergency-call readiness.
 
